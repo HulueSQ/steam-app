@@ -90,7 +90,7 @@ const routes = [
     {
         path: '/admin/home',
         name: 'adminHome',
-        redirect: '/admin/user',
+        redirect: '/admin/main',
         component: AdminHome,
         children: [
             {

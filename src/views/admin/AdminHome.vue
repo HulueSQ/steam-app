@@ -10,7 +10,9 @@
                     :collapse="false" active-text-color="#409BFF">
                     <!-- 不用子菜单 -->
                     <el-menu-item style="background-color: #304156 !important;" index="/admin/main">
-                        <el-icon><HomeFilled/></el-icon>首页
+                        <el-icon>
+                            <HomeFilled />
+                        </el-icon>首页
                     </el-menu-item>
 
                     <el-sub-menu index="2">
@@ -88,7 +90,10 @@ export default {
     },
     // 每次都要检查是否登录
     created() {
-        this.user = getAdminUser()
+        this.user = getAdminUser() || {}
+        if (!this.user.id) {
+            this.$router.push('/admin/login')
+        }
     },
 }
 
